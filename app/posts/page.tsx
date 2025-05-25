@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import path from 'path';
 import fs from 'fs/promises';
 import React from 'react';
 import { Post } from "@/types/post";
+import { postsFilePath } from "@/constants/FilePath";
 
 export default async function Posts() {
-  const postsFilePath = path.join(process.cwd(), 'data', 'posts.json');
   const fileContents = await fs.readFile(postsFilePath, 'utf8');
   const posts: Post[] = JSON.parse(fileContents);
 

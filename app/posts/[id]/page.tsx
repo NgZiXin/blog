@@ -1,4 +1,3 @@
-import fs from "fs/promises";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import LikeCounter from "@/components/LikeCounter";

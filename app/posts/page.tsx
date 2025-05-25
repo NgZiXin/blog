@@ -3,13 +3,7 @@ import Link from "next/link";
 import path from 'path';
 import fs from 'fs/promises';
 import React from 'react';
-
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-  img: string;
-}
+import { Post } from "@/types/post";
 
 export default async function Posts() {
   const postsFilePath = path.join(process.cwd(), 'data', 'posts.json');

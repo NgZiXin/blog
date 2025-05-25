@@ -1,6 +1,6 @@
 import Image from "next/image";
-// import Clock from "./components/Clock";
-// import Counter from "./components/Counter";
+// import Clock from "@/components/Clock";
+// import Counter from "@/components/Counter";
 
 export default function Home() {
   return (

@@ -3,4 +3,6 @@ export default interface Post {
   title: string;
   body: string;
   img: string;
+  date: Date
+  likes: number;
 }

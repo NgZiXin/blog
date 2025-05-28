@@ -7,7 +7,8 @@ export default function Footer() {
   const router = useRouter();
 
   return (
-    <footer className="bg-white rounded-lg shadow-sm m-4 dark:bg-gray-800">
+    <div className="dark:bg-gray-900">
+    <footer className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-sm m-4">
       <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2025 BLOG™. All Rights Reserved.
@@ -26,5 +27,6 @@ export default function Footer() {
         </ul>
       </div>
     </footer>
+    </div>
   );
 }

@@ -1,51 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { saveLike } from "@/actions/posts";
+import { incrementLikes, decrementLikes } from "@/actions/posts";
 
 interface LikeCounterProps {
   id: number;
   initialCount: number;
-  changeInterval: number;
-  hasReset: boolean;
 }
 
-export default function LikeCounter({
-  id,
-  initialCount,
-  changeInterval,
-  hasReset,
-}: LikeCounterProps) {
+export default function LikeCounter({ id, initialCount }: LikeCounterProps) {
   const [count, setCount] = useState<number>(initialCount);
 
-  const handleDecrement = () => {
-    setCount(count - changeInterval);
+  const handleDecrement = async () => {
+    const updatedLikes = await decrementLikes(id);
+    setCount(updatedLikes);
   };
 
-  const handleIncrement = () => {
-    setCount(count + changeInterval);
-  };
-
-  const handleReset = () => {
-    setCount(initialCount);
-  };
-
-  const saveCount = (formData: FormData) => {
-    saveLike({
-      id: Number(formData.get("id")),
-      count: Number(formData.get("count")),
-    });
+  const handleIncrement = async () => {
+    const updatedLikes = await incrementLikes(id);
+    setCount(updatedLikes);
   };
 
   return (
-    <form action={saveCount}>
-      <input type="hidden" name="id" value={id} />
-      <input type="hidden" name="count" value={count} />
-      <div className="flex flex-col max-w-[8rem] items-center">
-        <div className="relative flex">
+    <div className="flex justify-end w-full">
+      <div className="flex max-w-xs">
         <button
+          type="button"
           onClick={handleIncrement}
-          className="bg-gray-100 hover:bg-gray-200 border border-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 rounded-s-lg p-2.5 h-11 flex items-center justify-center"
+          className="bg-gray-100 hover:bg-gray-200 border border-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 rounded-l-lg z-10 p-2.5 h-11 flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +35,7 @@ export default function LikeCounter({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-3"
+            className="w-6 h-6"
           >
             <path
               strokeLinecap="round"
@@ -65,12 +47,13 @@ export default function LikeCounter({
         <input
           type="text"
           value={count}
-          className="bg-gray-50 border border-gray-300 h-11 text-center text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm block w-12 py-2.5"
+          className="bg-gray-50 border border-gray-300 h-11 text-center text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white text-md w-16 py-2.5"
           disabled
         />
         <button
+          type="button"
           onClick={handleDecrement}
-          className="bg-gray-100 hover:bg-gray-200 border border-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 rounded-e-lg p-2.5 h-11 flex items-center justify-center"
+          className="bg-gray-100 hover:bg-gray-200 border border-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 rounded-r-lg z-10 p-2.5 h-11 flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +61,7 @@ export default function LikeCounter({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-3"
+            className="w-6 h-6"
           >
             <path
               strokeLinecap="round"
@@ -87,25 +70,7 @@ export default function LikeCounter({
             />
           </svg>
         </button>
-        <button
-          type="submit"
-          className="ml-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Save
-        </button>
-        </div>
-
-        {hasReset ? (
-          <button
-            onClick={handleReset}
-            className="text-sm text-gray-300 hover:text-gray-500 hover:underline dark:text-gray-700 dark:hover:text-gray-500"
-          >
-            Reset
-          </button>
-        ) : (
-          <></>
-        )}
       </div>
-    </form>
+    </div>
   );
 }

@@ -1,5 +1,26 @@
 [
-  { "id": 1, "title": "First Post", "body": "This is the first post.", "img": "/posts/images/image-1.jpg" },
-  { "id": 2, "title": "Second Post", "body": "This is the second post.", "img": "/posts/images/image-2.jpg"},
-  { "id": 3, "title": "Third Post", "body": "This is the third post.", "img": "/posts/images/image-3.jpg"}
+  {
+    "id": 1,
+    "title": "First Post",
+    "body": "This is the first post.",
+    "img": "/posts/images/image-1.jpg",
+    "date": "2025-05-20T10:00:00.000Z",
+    "likes": 11
+  },
+  {
+    "id": 2,
+    "title": "Second Post",
+    "body": "This is the second post.",
+    "img": "/posts/images/image-2.jpg",
+    "date": "2025-05-22T14:30:00.000Z",
+    "likes": 0
+  },
+  {
+    "id": 3,
+    "title": "Third Post",
+    "body": "This is the third post.",
+    "img": "/posts/images/image-3.jpg",
+    "date": "2025-05-25T09:15:00.000Z",
+    "likes": 0
+  }
 ]

@@ -35,13 +35,18 @@ function ThemeProvider({ children }: { children: ReactNode }) {
 
   // Load theme from localStorage on mount
   useEffect(() => {
-    document.documentElement.classList.toggle(
-      "dark",
-      localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
-  }, []);
+  const storedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const initialTheme = storedTheme
+    ? (storedTheme as Theme)
+    : prefersDark
+    ? "dark"
+    : "light";
+
+  setTheme(initialTheme);
+  document.documentElement.classList.toggle("dark", initialTheme === "dark");
+}, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

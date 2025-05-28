@@ -7,7 +7,7 @@ export default async function Posts() {
 
   return (
     <main className="flex flex-col items-center p-8 sm:p-12">
-      <ul className="space-y-4 mb-6">
+      <ul className="space-y-8 md:space-y-4 mb-6">
         {posts.map((post) => (
           <li key={post.id}>
             <PostCard post={post} />

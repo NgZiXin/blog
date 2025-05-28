@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <main className="flex flex-col items-center p-8 sm:p-12">
-      <div className="max-w-screen-md w-full flex flex-col items-center">
+    <main className="p-8 sm:p-12">
+      <div className="max-w-screen-md w-full mx-auto flex flex-col items-center">
         <div className="w-40 h-40 rounded-full overflow-hidden shadow-lg">
           <Image
             src="/about/profile.jpg"

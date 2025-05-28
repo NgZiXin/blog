@@ -1,8 +1,7 @@
 import Post from "@/types/Post";
 import { getPosts } from "@/actions/posts";
 import Carousel from "@/components/home/Carousel";
-import Clock from "@/components/commons/Clock";
-// import Counter from "@/components/Counter";
+// import Clock from "@/components/commons/Clock";
 
 export default async function Home() {
   const posts: Post[] = await getPosts();

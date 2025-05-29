@@ -84,7 +84,7 @@ function CarouselCard({ post }: { post: Post }) {
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
           {getFormattedDate(date)}
         </h5>
-        <p className="mb-3 font-normal line-clamp-1 text-gray-900 dark:text-gray-100 max-w-[75%]">
+        <p className="mb-3 font-normal line-clamp-1 break-words text-gray-900 dark:text-gray-100 max-w-[75%]">
           {title}
         </p>
       </div>

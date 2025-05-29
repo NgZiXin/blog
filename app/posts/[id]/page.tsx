@@ -3,7 +3,13 @@ import { notFound } from "next/navigation";
 import LikeCounter from "@/components/posts/[id]/LikeCounter";
 import { getPost } from "@/actions/posts";
 
-export default async function PostPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function PostPage({ params }: PageProps) {
   const id = Number(params.id);
   const post = await getPost(id);
   if (!post) return notFound();
@@ -20,11 +26,11 @@ export default async function PostPage({ params }: { params: { id: string } }) {
           className="rounded-lg object-cover"
         />
 
-        <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
           {title}
         </h1>
 
-        <p className="text-lg leading-normal text-gray-700 dark:text-gray-300">
+        <p className="text-base text-justify font-sans leading-relaxed text-gray-700 dark:text-gray-300">
           {body}
         </p>
         <LikeCounter id={id} initialCount={likes} />

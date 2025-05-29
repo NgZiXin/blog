@@ -29,10 +29,10 @@ export default function PostCard({ post }: PostCardProps) {
 
         {/* Text content */}
         <div className="relative p-6 md:h-48 h-24 w-96 md:space-y-4 space-y-2">
-            <h5 className="text-lg leading-tight font-semibold text-gray-900 dark:text-white line-clamp-1 md:line-clamp-2 break-word">
+            <h5 className="text-lg leading-tight font-semibold text-gray-900 dark:text-white line-clamp-1 md:line-clamp-2 break-words">
               {title}
             </h5>
-          <p className="text-sm leading-tight text-gray-700 dark:text-gray-300 line-clamp-1 md:line-clamp-4 break-word text-justify">
+          <p className="text-sm leading-tight text-gray-700 dark:text-gray-300 line-clamp-1 md:line-clamp-4 break-words text-justify">
             {body}
           </p>
         </div>

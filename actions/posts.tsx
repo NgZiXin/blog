@@ -2,7 +2,7 @@
 
 import path from "path";
 import fs from "fs/promises";
-import Post from "@/types/Post";
+import type Post from "@/types/Post";
 
 interface PostJson {
   id: number;

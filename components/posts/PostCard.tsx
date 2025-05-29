@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Post from "@/types/Post";
+import type Post from "@/types/Post";
 
 interface PostCardProps {
   post: Post;

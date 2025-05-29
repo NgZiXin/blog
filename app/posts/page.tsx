@@ -1,4 +1,4 @@
-import Post from "@/types/Post";
+import type Post from "@/types/Post";
 import PostCard from "@/components/posts/PostCard";
 import { getPosts } from "@/actions/posts";
 

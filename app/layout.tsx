@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Blog",
   description: "Zi Xin's Travel Blog",
+  icons: {
+    icon: "/plane.png"
+  }
 };
 
 export default function RootLayout({

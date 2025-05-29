@@ -10,8 +10,8 @@ type PageProps = {
 };
 
 export default async function PostPage({ params }: PageProps) {
-  const id = Number(params.id);
-  const post = await getPost(id);
+  const { id } = await params;
+  const post = await getPost(Number(id));
   if (!post) return notFound();
 
   const { title, body, img, likes } = post;
@@ -33,7 +33,7 @@ export default async function PostPage({ params }: PageProps) {
         <p className="text-base text-justify font-sans leading-relaxed text-gray-700 dark:text-gray-300">
           {body}
         </p>
-        <LikeCounter id={id} initialCount={likes} />
+        <LikeCounter id={Number(id)} initialCount={likes} />
       </div>
     </main>
   );

@@ -3,15 +3,9 @@ import { notFound } from "next/navigation";
 import LikeCounter from "@/components/posts/[id]/LikeCounter";
 import { getPost } from "@/actions/posts";
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
-
-export default async function PostPage({ params }: PageProps) {
-  const { id } = await params;
-  const post = await getPost(Number(id));
+export default async function PostPage({ params }: {params: Promise<{id: string}>}) {
+  const id = Number((await params).id);
+  const post = await getPost(id);
   if (!post) return notFound();
 
   const { title, body, img, likes } = post;
@@ -33,7 +27,7 @@ export default async function PostPage({ params }: PageProps) {
         <p className="text-base text-justify font-sans leading-relaxed text-gray-700 dark:text-gray-300">
           {body}
         </p>
-        <LikeCounter id={Number(id)} initialCount={likes} />
+        <LikeCounter id={id} initialCount={likes} />
       </div>
     </main>
   );

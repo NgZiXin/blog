@@ -10,7 +10,7 @@ export default async function Home() {
       <main className="flex flex-col items-center w-full p-8 sm:p-12">
         {/* <Clock /> */}
         <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-950 dark:from-blue-500 to-blue-700 dark:to-blue-750 uppercase mb-6">
-          ZiXin&apos;s Blog
+          Travel Blog
         </h1>
         <Carousel posts={posts} />
       </main>
